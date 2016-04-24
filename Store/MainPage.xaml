@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="Store.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Store"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Background="Black" Tapped="Menu_Tapped" Height="70" Margin="0,0,0,570" Width="360">
+            <TextBlock x:Name="header" Text="MyStore" Height="38" Margin="20,20,224,600" Foreground="White" SelectionHighlightColor="#FF0078D7" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.558,1.535" FontSize="21.333" FontFamily="Segoe Print" />
+        </StackPanel>
+        <StackPanel Margin="10,10,196,-10">
+            <TextBlock x:Name="foodText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Food" VerticalAlignment="Top" Margin="0,120" Foreground="Black" FontSize="26.667" FontFamily="Showcard Gothic"/>
+            <TextBlock x:Name="drinksText" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Drinks" VerticalAlignment="Top" Margin="0,0,0,120" FontSize="26.667" FontFamily="Showcard Gothic"/>
+            <TextBlock x:Name="fashionText" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Fashion" VerticalAlignment="Top" Height="44" RenderTransformOrigin="-1.013,2.754" Margin="0,0,0,120" FontSize="26.667" FontFamily="Showcard Gothic" Width="144"/>
+        </StackPanel>
+        <StackPanel Margin="164,0,0,0">
+            <Button x:Name="foodButton" HorizontalAlignment="Left" VerticalAlignment="Top" Click="foodButton_Click" RenderTransformOrigin="-2.18,0.52" Width="120" Height="100" Margin="0,120,0,40">
+                <Button.Background>
+                    <ImageBrush ImageSource="ms-appx:///Images/food.png" Stretch="Fill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="drinksButton" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.467,0.48" Width="120" Height="100" Margin="0,0,0,40">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="Images/drinks.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="fashionButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="100" Margin="0,0,0,40" >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="Images/clothes.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>
