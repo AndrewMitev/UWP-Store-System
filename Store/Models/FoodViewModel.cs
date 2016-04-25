@@ -9,14 +9,14 @@ namespace Store.Models
 {
     public class FoodViewModel
     {
-        private ObservableCollection<FoodItem> foods;
+        private ObservableCollection<FoodItemViewModel> foods;
 
         public FoodViewModel()
         {
-            this.Foods = new ObservableCollection<FoodItem>();
+            this.Foods = new ObservableCollection<FoodItemViewModel>();
         }
 
-        public IEnumerable<FoodItem> Foods
+        public IEnumerable<FoodItemViewModel> Foods
         {
             get
             {
@@ -26,7 +26,7 @@ namespace Store.Models
             {
                 if (this.foods == null)
                 {
-                    this.foods = new ObservableCollection<FoodItem>(value);
+                    this.foods = new ObservableCollection<FoodItemViewModel>(value);
                 }
 
                 this.foods.Clear();
@@ -34,7 +34,7 @@ namespace Store.Models
             }
         }
 
-        public void Add(FoodItem newItem)
+        public void Add(FoodItemViewModel newItem)
         {
             this.foods.Add(newItem);
         }

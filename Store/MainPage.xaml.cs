@@ -28,10 +28,13 @@ namespace Store
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private SQLiteAsyncConnection connection;
+
         public MainPage()
         {
             this.InitializeComponent();
-            this.Seed();
+            this.connection = this.GetDbConnectionAsync();
+            this.Init();
         }
 
         private SQLiteAsyncConnection GetDbConnectionAsync()
@@ -50,20 +53,22 @@ namespace Store
             return asyncConnection;
         }
 
-        private async Task InitAsync()
+        private async void Init()
         {
-            var connection = this.GetDbConnectionAsync();
-            await connection.CreateTableAsync<DrinkItem>();
-            await connection.CreateTableAsync<FoodItem>();
-            await connection.CreateTableAsync<StyleItem>();
+            await this.InitAsync(Seed);
+        }
+
+        private async Task InitAsync(Action seedCallback)
+        {
+            await this.connection.CreateTableAsync<DrinkItem>();
+            await this.connection.CreateTableAsync<FoodItem>();
+            await this.connection.CreateTableAsync<StyleItem>();
+
+            seedCallback();
         }
 
         private async void Seed()
         {
-            var connection = this.GetDbConnectionAsync();
-
-            await InitAsync();
-
             if (connection.Table<FoodItem>().CountAsync().Result == 0)
             {
                 var foodItemOne = new FoodItem()
@@ -154,15 +159,11 @@ namespace Store
 
                 await connection.InsertAsync(styleItemOne);
             }
-
-            //AsyncTableQuery<Article> query = conn.Table<Article>()
-            //                                        .Where(x => x.Title.Contains(title));
-            //List<Article> result = await query.ToListAsync();
         }
 
         private void Menu_Tapped(object sender, RoutedEventArgs e)
         {
-            //this.Frame.Navigate(typeof(FoodPage));
+            this.Frame.Navigate(typeof(MainPage));
         }
 
         private void foodButton_Click(object sender, RoutedEventArgs e)

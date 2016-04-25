@@ -11,12 +11,14 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -32,15 +34,20 @@ namespace Store
         {
             this.InitializeComponent();
 
-            var connection = this.GetDbConnectionAsync();
-
             this.ViewModel = new FoodViewModel();
-            this.ViewModel.Foods = this.GetAllFoods(connection).Result;
+            this.GetAllFoods();
         }
 
-        private async Task<IEnumerable<FoodItem>> GetAllFoods(SQLiteAsyncConnection connection)
+        private async void GetAllFoods()
         {
-            return await connection.Table<FoodItem>().ToListAsync();
+            var connection = this.GetDbConnectionAsync();
+
+            IEnumerable<FoodItem> data =  await connection.Table<FoodItem>().ToListAsync();
+
+            if (data.Count() > 0)
+            {
+                data.ForEach(i => this.ViewModel.Add(new FoodItemViewModel { Name=i.Name, Price=i.Price, ImageBytes=i.Image}));
+            }
         }
 
         public FoodViewModel ViewModel
@@ -69,6 +76,11 @@ namespace Store
             var asyncConnection = new SQLiteAsyncConnection(connectionFactory);
 
             return asyncConnection;
+        }
+
+        private void Menu_Tapped(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

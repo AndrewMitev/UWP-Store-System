@@ -7,27 +7,32 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel x:ConnectionId='1' Background="Black"                      Height="70" Margin="0,0,0,570" Width="360">
-            <TextBlock x:ConnectionId='8' x:Name="header" Text="MyStore" Height="38" Margin="20,20,224,600" Foreground="White" SelectionHighlightColor="#FF0078D7" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.558,1.535" FontSize="21.333" FontFamily="Segoe Print" />
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="Auto" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        
+        <Canvas x:ConnectionId='1' Grid.Row="0" Background="Black"                      HorizontalAlignment="Stretch" Height="80">
+            <TextBlock x:ConnectionId='8' x:Name="header" Canvas.Top="20" Canvas.Left="20" Text="MyStore" Foreground="White" SelectionHighlightColor="#FF0078D7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" FontFamily="Segoe Print" />
+        </Canvas>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left">
+            <TextBlock x:ConnectionId='5' x:Name="foodText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Food" VerticalAlignment="Top" Foreground="Black" FontSize="26" FontFamily="Showcard Gothic"  Margin="40 80"/>
+            <TextBlock x:ConnectionId='6' x:Name="drinksText" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Drinks" VerticalAlignment="Top" FontSize="26" FontFamily="Showcard Gothic" Margin="40 80"/>
+            <TextBlock x:ConnectionId='7' x:Name="fashionText" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Fashion" VerticalAlignment="Top" FontSize="26" FontFamily="Showcard Gothic" Margin="40 80" />
         </StackPanel>
-        <StackPanel Margin="10,10,196,-10">
-            <TextBlock x:ConnectionId='5' x:Name="foodText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Food" VerticalAlignment="Top" Margin="0,120" Foreground="Black" FontSize="26.667" FontFamily="Showcard Gothic"/>
-            <TextBlock x:ConnectionId='6' x:Name="drinksText" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Drinks" VerticalAlignment="Top" Margin="0,0,0,120" FontSize="26.667" FontFamily="Showcard Gothic"/>
-            <TextBlock x:ConnectionId='7' x:Name="fashionText" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Fashion" VerticalAlignment="Top" Height="44" RenderTransformOrigin="-1.013,2.754" Margin="0,0,0,120" FontSize="26.667" FontFamily="Showcard Gothic" Width="144"/>
-        </StackPanel>
-        <StackPanel Margin="164,0,0,0">
-            <Button x:ConnectionId='2' x:Name="foodButton" HorizontalAlignment="Left" VerticalAlignment="Top"                          RenderTransformOrigin="-2.18,0.52" Width="120" Height="100" Margin="0,120,0,40">
+        <StackPanel Grid.Row="1" HorizontalAlignment="Right">
+            <Button x:ConnectionId='2' x:Name="foodButton" HorizontalAlignment="Left" VerticalAlignment="Top"                          Width="120" Height="100" Margin="40">
                 <Button.Background>
                     <ImageBrush ImageSource="ms-appx:///Images/food.png" Stretch="Fill"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='3' x:Name="drinksButton" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.467,0.48" Width="120" Height="100" Margin="0,0,0,40">
+            <Button x:ConnectionId='3' x:Name="drinksButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="100" Margin="40">
                 <Button.Background>
                     <ImageBrush Stretch="Fill" ImageSource="Images/drinks.png"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='4' x:Name="fashionButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="100" Margin="0,0,0,40" >
+            <Button x:ConnectionId='4' x:Name="fashionButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="100" Margin="40" >
                 <Button.Background>
                     <ImageBrush Stretch="Fill" ImageSource="Images/clothes.png"/>
                 </Button.Background>

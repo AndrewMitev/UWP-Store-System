@@ -9,16 +9,16 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>b4217bc6-f749-49f1-a2d2-a87b1a33945d</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Митрандир\Desktop\StoreApp\Store\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\bin\x86\Debug\Store.exe">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\bin\x86\Debug\Store.exe">
       <PackagePath>entrypoint\Store.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Митрандир\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
@@ -354,85 +354,85 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.10240.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Images\clothes.png">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\clothes.png">
       <PackagePath>Images\clothes.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Images\drinks.png">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\drinks.png">
       <PackagePath>Images\drinks.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Images\drinks\fanta.png">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\drinks\fanta.png">
       <PackagePath>Images\drinks\fanta.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Images\drinks\milk.png">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\drinks\milk.png">
       <PackagePath>Images\drinks\milk.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Images\food.png">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\food.png">
       <PackagePath>Images\food.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Images\drinks\cola.jpg">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\drinks\cola.jpg">
       <PackagePath>Images\drinks\cola.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Images\drinks\juice.jpg">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\drinks\juice.jpg">
       <PackagePath>Images\drinks\juice.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Images\food\beef.jpg">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\food\beef.jpg">
       <PackagePath>Images\food\beef.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Images\food\cheese.jpg">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\food\cheese.jpg">
       <PackagePath>Images\food\cheese.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Images\food\potatoes.jpg">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\food\potatoes.jpg">
       <PackagePath>Images\food\potatoes.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Images\food\tomatoes.jpg">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\food\tomatoes.jpg">
       <PackagePath>Images\food\tomatoes.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Images\style\nike.jpg">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\style\nike.jpg">
       <PackagePath>Images\style\nike.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\bin\x86\Debug\Store.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\bin\x86\Debug\Store.xr.xml">
       <PackagePath>Store.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\IISandAzure\StoreApp\Store\bin\x86\Debug\Core\Store.exe">
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\bin\x86\Debug\Core\Store.exe">
       <PackagePath>Store.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

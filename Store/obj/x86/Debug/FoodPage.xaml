@@ -8,11 +8,31 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListBox x:ConnectionId='1'
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <Canvas x:ConnectionId='1' Grid.Row="0" Background="Black"                      HorizontalAlignment="Stretch" Height="80">
+            <TextBlock x:ConnectionId='3' x:Name="header" Canvas.Top="20" Canvas.Left="20" Text="MyStore" Foreground="White" SelectionHighlightColor="#FF0078D7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" FontFamily="Segoe Print" />
+        </Canvas>
+
+        <ListBox x:ConnectionId='2'
             Name="foods"
-            ItemsSource="{Binding Foods}"
-            DisplayMemberPath="Name"
-            >
+            Grid.Row="1"
+            Margin="10 40"
+            ItemsSource="{Binding Foods}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="100" Height="60" Source="{Binding TempImage}" Margin="20" />
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}" />
+                            <TextBlock Text="{Binding Price}" Margin="10" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
 </Page>
