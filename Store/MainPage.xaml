@@ -12,9 +12,14 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        
-        <Canvas Grid.Row="0" Background="Black" Tapped="Menu_Tapped" HorizontalAlignment="Stretch" Height="80">
+
+        <Canvas Name="Menu" Grid.Row="0" Background="Black" Tapped="Menu_Tapped" HorizontalAlignment="Stretch" Height="80">
             <TextBlock x:Name="header" Canvas.Top="20" Canvas.Left="20" Text="MyStore" Foreground="White" SelectionHighlightColor="#FF0078D7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" FontFamily="Segoe Print" />
+            <TextBlock Text="Hello, " Foreground="White" Canvas.Left="260" Canvas.Top="10" />
+            <TextBlock Name="UserName" Foreground="White" Canvas.Left="310" Canvas.Top="10" />
+            <Button Canvas.Left="280" Canvas.Top="30" Click="My_Cart">
+                <Image Source="Images/cart.png" Width="40" />
+            </Button>
         </Canvas>
         <StackPanel Grid.Row="1" HorizontalAlignment="Left">
             <TextBlock x:Name="foodText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Food" VerticalAlignment="Top" Foreground="Black" FontSize="26" FontFamily="Showcard Gothic"  Margin="40 80"/>

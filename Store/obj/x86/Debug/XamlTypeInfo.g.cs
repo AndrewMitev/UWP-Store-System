@@ -132,23 +132,29 @@ namespace Store.Store_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[7];
-            _typeNameTable[0] = "Store.FoodPage";
+            _typeNameTable = new string[10];
+            _typeNameTable[0] = "Store.Details";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "Store.Models.FoodViewModel";
+            _typeNameTable[3] = "Store.Models.ItemViewModel";
             _typeNameTable[4] = "Object";
-            _typeNameTable[5] = "Store.MainPage";
-            _typeNameTable[6] = "Store.Registration";
+            _typeNameTable[5] = "Store.FoodPage";
+            _typeNameTable[6] = "Store.Models.ItemCollectionViewModel";
+            _typeNameTable[7] = "Store.MainPage";
+            _typeNameTable[8] = "Store.MyCart";
+            _typeNameTable[9] = "Store.Registration";
 
-            _typeTable = new global::System.Type[7];
-            _typeTable[0] = typeof(global::Store.FoodPage);
+            _typeTable = new global::System.Type[10];
+            _typeTable[0] = typeof(global::Store.Details);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::Store.Models.FoodViewModel);
+            _typeTable[3] = typeof(global::Store.Models.ItemViewModel);
             _typeTable[4] = typeof(global::System.Object);
-            _typeTable[5] = typeof(global::Store.MainPage);
-            _typeTable[6] = typeof(global::Store.Registration);
+            _typeTable[5] = typeof(global::Store.FoodPage);
+            _typeTable[6] = typeof(global::Store.Models.ItemCollectionViewModel);
+            _typeTable[7] = typeof(global::Store.MainPage);
+            _typeTable[8] = typeof(global::Store.MyCart);
+            _typeTable[9] = typeof(global::Store.Registration);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -183,10 +189,13 @@ namespace Store.Store_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_FoodPage() { return new global::Store.FoodPage(); }
-        private object Activate_3_FoodViewModel() { return new global::Store.Models.FoodViewModel(); }
-        private object Activate_5_MainPage() { return new global::Store.MainPage(); }
-        private object Activate_6_Registration() { return new global::Store.Registration(); }
+        private object Activate_0_Details() { return new global::Store.Details(); }
+        private object Activate_3_ItemViewModel() { return new global::Store.Models.ItemViewModel(); }
+        private object Activate_5_FoodPage() { return new global::Store.FoodPage(); }
+        private object Activate_6_ItemCollectionViewModel() { return new global::Store.Models.ItemCollectionViewModel(); }
+        private object Activate_7_MainPage() { return new global::Store.MainPage(); }
+        private object Activate_8_MyCart() { return new global::Store.MyCart(); }
+        private object Activate_9_Registration() { return new global::Store.Registration(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -198,9 +207,9 @@ namespace Store.Store_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  Store.FoodPage
+            case 0:   //  Store.Details
                 userType = new global::Store.Store_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_FoodPage;
+                userType.Activator = Activate_0_Details;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -214,7 +223,7 @@ namespace Store.Store_XamlTypeInfo
                 xamlType = new global::Store.Store_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Store.Models.FoodViewModel
+            case 3:   //  Store.Models.ItemViewModel
                 userType = new global::Store.Store_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
@@ -225,16 +234,39 @@ namespace Store.Store_XamlTypeInfo
                 xamlType = new global::Store.Store_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  Store.MainPage
+            case 5:   //  Store.FoodPage
                 userType = new global::Store.Store_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_MainPage;
+                userType.Activator = Activate_5_FoodPage;
+                userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  Store.Registration
+            case 6:   //  Store.Models.ItemCollectionViewModel
+                userType = new global::Store.Store_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  Store.MainPage
                 userType = new global::Store.Store_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_Registration;
+                userType.Activator = Activate_7_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 8:   //  Store.MyCart
+                userType = new global::Store.Store_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_8_MyCart;
+                userType.AddMemberName("ViewModel");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 9:   //  Store.Registration
+                userType = new global::Store.Store_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_9_Registration;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -243,15 +275,35 @@ namespace Store.Store_XamlTypeInfo
         }
 
 
-        private object get_0_FoodPage_ViewModel(object instance)
+        private object get_0_Details_ViewModel(object instance)
+        {
+            var that = (global::Store.Details)instance;
+            return that.ViewModel;
+        }
+        private void set_0_Details_ViewModel(object instance, object Value)
+        {
+            var that = (global::Store.Details)instance;
+            that.ViewModel = (global::Store.Models.ItemViewModel)Value;
+        }
+        private object get_1_FoodPage_ViewModel(object instance)
         {
             var that = (global::Store.FoodPage)instance;
             return that.ViewModel;
         }
-        private void set_0_FoodPage_ViewModel(object instance, object Value)
+        private void set_1_FoodPage_ViewModel(object instance, object Value)
         {
             var that = (global::Store.FoodPage)instance;
-            that.ViewModel = (global::Store.Models.FoodViewModel)Value;
+            that.ViewModel = (global::Store.Models.ItemCollectionViewModel)Value;
+        }
+        private object get_2_MyCart_ViewModel(object instance)
+        {
+            var that = (global::Store.MyCart)instance;
+            return that.ViewModel;
+        }
+        private void set_2_MyCart_ViewModel(object instance, object Value)
+        {
+            var that = (global::Store.MyCart)instance;
+            that.ViewModel = (global::Store.Models.ItemCollectionViewModel)Value;
         }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -261,11 +313,23 @@ namespace Store.Store_XamlTypeInfo
 
             switch (longMemberName)
             {
+            case "Store.Details.ViewModel":
+                userType = (global::Store.Store_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Store.Details");
+                xamlMember = new global::Store.Store_XamlTypeInfo.XamlMember(this, "ViewModel", "Store.Models.ItemViewModel");
+                xamlMember.Getter = get_0_Details_ViewModel;
+                xamlMember.Setter = set_0_Details_ViewModel;
+                break;
             case "Store.FoodPage.ViewModel":
                 userType = (global::Store.Store_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Store.FoodPage");
-                xamlMember = new global::Store.Store_XamlTypeInfo.XamlMember(this, "ViewModel", "Store.Models.FoodViewModel");
-                xamlMember.Getter = get_0_FoodPage_ViewModel;
-                xamlMember.Setter = set_0_FoodPage_ViewModel;
+                xamlMember = new global::Store.Store_XamlTypeInfo.XamlMember(this, "ViewModel", "Store.Models.ItemCollectionViewModel");
+                xamlMember.Getter = get_1_FoodPage_ViewModel;
+                xamlMember.Setter = set_1_FoodPage_ViewModel;
+                break;
+            case "Store.MyCart.ViewModel":
+                userType = (global::Store.Store_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Store.MyCart");
+                xamlMember = new global::Store.Store_XamlTypeInfo.XamlMember(this, "ViewModel", "Store.Models.ItemCollectionViewModel");
+                xamlMember.Getter = get_2_MyCart_ViewModel;
+                xamlMember.Setter = set_2_MyCart_ViewModel;
                 break;
             }
             return xamlMember;

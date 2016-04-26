@@ -1,6 +1,7 @@
 ﻿using SQLite.Net;
 using SQLite.Net.Async;
 using SQLite.Net.Platform.WinRT;
+using Store.Helpers;
 using Store.Models;
 using System;
 using System.Collections.Generic;
@@ -28,13 +29,12 @@ namespace Store
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private SQLiteAsyncConnection connection;
-
         public MainPage()
         {
             this.InitializeComponent();
-            this.connection = this.GetDbConnectionAsync();
             this.Init();
+
+            this.UserName.Text = Cart.UserChart.FirstName;
         }
 
         private SQLiteAsyncConnection GetDbConnectionAsync()
@@ -60,101 +60,125 @@ namespace Store
 
         private async Task InitAsync(Action seedCallback)
         {
-            await this.connection.CreateTableAsync<DrinkItem>();
-            await this.connection.CreateTableAsync<FoodItem>();
-            await this.connection.CreateTableAsync<StyleItem>();
+            var connection = this.GetDbConnectionAsync();
+            await connection.CreateTableAsync<Category>();
+            await connection.CreateTableAsync<Item>();
 
             seedCallback();
         }
 
         private async void Seed()
         {
-            if (connection.Table<FoodItem>().CountAsync().Result == 0)
+            var connection = this.GetDbConnectionAsync();
+
+            var food = new Category { Name = "Food" };
+            var drink = new Category { Name = "Drink" };
+            var style = new Category { Name = "Style" };
+
+            if (connection.Table<Category>().CountAsync().Result == 0)
             {
-                var foodItemOne = new FoodItem()
+                await connection.InsertAsync(food);
+                await connection.InsertAsync(drink);
+                await connection.InsertAsync(style);
+            }
+
+            if (connection.Table<Item>().CountAsync().Result == 0)
+            {
+                var foodItemOne = new Item()
                 {
-                    Name = "Beef",
+                    Id = 1,
+                    Name = "Beefh",
                     Price = 3.60m,
-                    Image = File.ReadAllBytes("Images/food/beef.jpg")
+                    Image = File.ReadAllBytes("Images/food/beef.jpg"),
+                    CategoryId = 1
                 };
 
                 await connection.InsertAsync(foodItemOne);
 
-                var foodItemTwo = new FoodItem()
+                var foodItemTwo = new Item()
                 {
+                    Id = 2,
                     Name = "Cheese",
                     Price = 2.40m,
-                    Image = File.ReadAllBytes("Images/food/cheese.jpg")
+                    Image = File.ReadAllBytes("Images/food/cheese.jpg"),
+                    CategoryId = 1
                 };
 
                 await connection.InsertAsync(foodItemTwo);
 
-                var foodItemThree = new FoodItem()
+                var foodItemThree = new Item()
                 {
+                    Id = 3,
                     Name = "Potatoes",
                     Price = 1.00m,
-                    Image = File.ReadAllBytes("Images/food/potatoes.jpg")
+                    Image = File.ReadAllBytes("Images/food/potatoes.jpg"),
+                    CategoryId = 1
                 };
 
                 await connection.InsertAsync(foodItemThree);
 
-                var foodItemFour = new FoodItem()
+                var foodItemFour = new Item()
                 {
+                    Id = 4,
                     Name = "Tomatoes",
                     Price = 0.80m,
-                    Image = File.ReadAllBytes("Images/food/tomatoes.jpg")
+                    Image = File.ReadAllBytes("Images/food/tomatoes.jpg"),
+                    CategoryId = 1
                 };
 
                 await connection.InsertAsync(foodItemFour);
-            }
 
-            if (connection.Table<DrinkItem>().CountAsync().Result == 0)
-            {
-                var drinkItemOne = new DrinkItem()
+                var drinkItemOne = new Item()
                 {
+                    Id = 1,
                     Name = "Coca Cola",
                     Price = 1.20m,
-                    Image = File.ReadAllBytes("Images/drinks/cola.jpg")
+                    Image = File.ReadAllBytes("Images/drinks/cola.jpg"),
+                    CategoryId = 2
                 };
 
                 await connection.InsertAsync(drinkItemOne);
 
-                var drinkItemTwo = new DrinkItem()
+                var drinkItemTwo = new Item()
                 {
+                    Id = 2,
                     Name = "Fanta",
                     Price = 1.40m,
-                    Image = File.ReadAllBytes("Images/drinks/fanta.png")
+                    Image = File.ReadAllBytes("Images/drinks/fanta.png"),
+                    CategoryId = 2
                 };
 
                 await connection.InsertAsync(drinkItemTwo);
 
-                var drinkItemThree = new DrinkItem()
+                var drinkItemThree = new Item()
                 {
+                    Id = 3,
                     Name = "Juice",
                     Price = 0.80m,
-                    Image = File.ReadAllBytes("Images/drinks/juice.jpg")
+                    Image = File.ReadAllBytes("Images/drinks/juice.jpg"),
+                    CategoryId = 2
                 };
 
                 await connection.InsertAsync(drinkItemThree);
 
-                var drinkItemFour = new DrinkItem()
+                var drinkItemFour = new Item()
                 {
+                    Id = 4,
                     Name = "Milk",
                     Price = 1.45m,
-                    Image = File.ReadAllBytes("Images/drinks/milk.png")
+                    Image = File.ReadAllBytes("Images/drinks/milk.png"),
+                    CategoryId = 2
                 };
 
                 await connection.InsertAsync(drinkItemFour);
-            }
 
-
-            if (connection.Table<StyleItem>().CountAsync().Result == 0)
-            {
-                var styleItemOne = new StyleItem()
+                var styleItemOne = new Item()
                 {
+                    Id = 1,
                     Name = "Nike Shoes Sports Man Trainers Amd2016-Iso20",
                     Price = 240.00m,
-                    Image = File.ReadAllBytes("Images/style/nike.jpg")
+                    Image = File.ReadAllBytes("Images/style/nike.jpg"),
+                    CategoryId = 3
                 };
 
                 await connection.InsertAsync(styleItemOne);
@@ -180,5 +204,10 @@ namespace Store
         //{
         //    this.Frame.Navigate(typeof(Fashion));
         //}
+
+        private void My_Cart(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MyCart));
+        }
     }
 }

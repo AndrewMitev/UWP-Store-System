@@ -1,24 +1,23 @@
 ﻿using SQLite.Net;
 using SQLite.Net.Async;
 using SQLite.Net.Platform.WinRT;
+using Store.Helpers;
 using Store.Models;
+using Store.Models.Contracts;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
-using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -28,26 +27,13 @@ namespace Store
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class FoodPage : Page
+    public sealed partial class MyCart : Page
     {
-        public FoodPage()
+        public MyCart()
         {
             this.InitializeComponent();
-
-            this.ViewModel = new ItemCollectionViewModel();
-            this.GetAllFoods();
-        }
-
-        private async void GetAllFoods()
-        {
-            var connection = this.GetDbConnectionAsync();
-
-            IEnumerable<Item> data =  await connection.Table<Item>().Where(i => i.CategoryId == 1).ToListAsync();
-
-            if (data.Count() > 0)
-            {
-                data.ForEach(i => this.ViewModel.Add(new ItemViewModel { Id = i.Id, Name=i.Name, Price=i.Price, ImageBytes=i.Image}));
-            }
+            this.ViewModel = new ItemCollectionViewModel(Cart.UserChart.Items);
+            this.UserName.Text = Cart.UserChart.FirstName;
         }
 
         public ItemCollectionViewModel ViewModel
@@ -60,6 +46,25 @@ namespace Store
             {
                 this.DataContext = value;
             }
+        }
+
+        private void Menu_Tapped(object sender, RoutedEventArgs args)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private async void Begin_Transaction(object sender, RoutedEventArgs e)
+        {
+            var connection = this.GetDbConnectionAsync();
+
+            foreach (var item in this.ViewModel.Items)
+            {
+                Item databaseItem = await connection.Table<Item>().Where(x => x.Id == item.Id).FirstOrDefaultAsync();
+                databaseItem.Quantity -= item.Quantity;
+                await connection.UpdateAsync(databaseItem);     
+            }
+
+
         }
 
         private SQLiteAsyncConnection GetDbConnectionAsync()
@@ -76,19 +81,6 @@ namespace Store
             var asyncConnection = new SQLiteAsyncConnection(connectionFactory);
 
             return asyncConnection;
-        }
-
-        private void Menu_Tapped(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(MainPage));
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            int id = (int)((Button)sender).Tag;
-            ItemViewModel food = (ItemViewModel)this.ViewModel.Items.FirstOrDefault(p => p.Id == id);
-
-            this.Frame.Navigate(typeof(Details), food);
         }
     }
 }

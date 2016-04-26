@@ -410,3 +410,13 @@ C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\qualifiers.txt
 C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Митрандир\Desktop\StoreApp\Store\bin\x86\Debug\Details.xbf
+C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\Details.g.i.cs
+C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\Details.g.cs
+C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\Details.xaml
+C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\Details.xbf
+C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\MyCart.g.i.cs
+C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\MyCart.g.cs
+C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\MyCart.xaml
+C:\Users\Митрандир\Desktop\StoreApp\Store\obj\x86\Debug\MyCart.xbf
+C:\Users\Митрандир\Desktop\StoreApp\Store\bin\x86\Debug\MyCart.xbf

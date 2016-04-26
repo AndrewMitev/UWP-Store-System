@@ -1,15 +1,22 @@
-﻿using System;
+﻿using Store.Models.Contracts;
+using System;
 using System.Threading.Tasks;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace Store.Models
 {
-    public class FoodItemViewModel
+    public class ItemViewModel : ISellable
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public decimal Price { get; set; }
+
+        public int Quantity { get; set; } = 100;
+
+        public string Measurement { get; set; } = "Kg.";
 
         public byte[] ImageBytes { get; set; }
 

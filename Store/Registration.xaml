@@ -9,7 +9,7 @@
 
     <StackPanel Background="Black">
         <TextBlock Text="First Name"
-                   Margin="0 100 0 0"
+                   Margin="0 80 0 0"
                    Foreground="White" 
                    FontSize="26" 
                    HorizontalAlignment="Center" />
@@ -28,6 +28,8 @@
                 Background="Green" 
                 HorizontalAlignment="Stretch"
                 FontSize="30"
-                Margin="20 40" Click="Button_Click">Go!</Button>
+                Click="Register_User"
+                Margin="20 40">Go!
+        </Button>
     </StackPanel>
 </Page>

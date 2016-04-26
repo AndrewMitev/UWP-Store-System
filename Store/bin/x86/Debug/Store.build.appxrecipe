@@ -357,6 +357,9 @@
     <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\cart.png">
+      <PackagePath>Images\cart.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Митрандир\Desktop\StoreApp\Store\Images\clothes.png">
       <PackagePath>Images\clothes.png</PackagePath>
     </AppxPackagedFile>

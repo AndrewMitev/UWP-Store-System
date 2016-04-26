@@ -98,19 +98,25 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Details.xaml.cs">
+      <DependentUpon>Details.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="FoodPage.xaml.cs">
       <DependentUpon>FoodPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Cart.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Contracts\ISellable.cs" />
-    <Compile Include="Models\DrinkItem.cs" />
-    <Compile Include="Models\FoodItem.cs" />
-    <Compile Include="Models\FoodItemViewModel.cs" />
-    <Compile Include="Models\FoodViewModel.cs" />
-    <Compile Include="Models\StyleItem.cs" />
+    <Compile Include="Models\Database.Models\Category.cs" />
+    <Compile Include="Models\Database.Models\Item.cs" />
+    <Compile Include="Models\ItemViewModel.cs" />
+    <Compile Include="Models\ItemCollectionViewModel.cs" />
+    <Compile Include="MyCart.xaml.cs">
+      <DependentUpon>MyCart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
@@ -123,6 +129,7 @@
     <None Include="Store_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\cart.png" />
     <Content Include="Images\clothes.png" />
     <Content Include="Images\drinks.png" />
     <Content Include="Images\drinks\cola.jpg" />
@@ -149,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Details.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FoodPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +167,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyCart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Registration.xaml">
       <SubType>Designer</SubType>
