@@ -39,7 +39,8 @@
                             <TextBlock Text="{Binding Name}" />
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding Price}" />
-                                <TextBlock Text="{Binding Measurement}" />
+                                <TextBlock Text="$" />
+                                <TextBlock Text="{Binding Measurement}" Margin="10 0"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>

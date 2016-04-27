@@ -41,6 +41,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Price: "/>
                                 <TextBlock Text="{Binding Price}" />
+                                <TextBlock Text="$" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Quantity: "/>
