@@ -15,12 +15,12 @@
         </Grid.RowDefinitions>
 
         <Canvas x:ConnectionId='1' Name="Menu" Grid.Row="0" Background="Black"                      HorizontalAlignment="Stretch" Height="80">
-            <TextBlock x:ConnectionId='4' x:Name="header" Canvas.Top="20" Canvas.Left="20" Text="MyStore" Foreground="White" SelectionHighlightColor="#FF0078D7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" FontFamily="Segoe Print" />
+            <TextBlock x:ConnectionId='5' x:Name="header" Canvas.Top="20" Canvas.Left="20" Text="MyStore" Foreground="White" SelectionHighlightColor="#FF0078D7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" FontFamily="Segoe Print" />
             <TextBlock FontSize="11" Text="Hello, " Foreground="White" Canvas.Left="220" Canvas.Top="10" />
-            <TextBlock x:ConnectionId='5' FontSize="11" Name="UserName" Foreground="White" Canvas.Left="260" Canvas.Top="10" />
+            <TextBlock x:ConnectionId='6' FontSize="11" Name="UserName" Foreground="White" Canvas.Left="260" Canvas.Top="10" />
             <TextBlock FontSize="11" Text="Money: " Foreground="White" Canvas.Left="220" Canvas.Top="40" />
-            <TextBlock x:ConnectionId='6' FontSize="11" Name="Money" Foreground="White" Canvas.Left="260" Canvas.Top="40" />
-            <Button x:ConnectionId='7' Canvas.Left="290" Canvas.Top="10"                >
+            <TextBlock x:ConnectionId='7' FontSize="11" Name="Money" Foreground="White" Canvas.Left="260" Canvas.Top="40" />
+            <Button x:ConnectionId='8' Canvas.Left="290" Canvas.Top="10"                >
                 <Image Source="Images/cart.png" Width="50" />
             </Button>
         </Canvas>
@@ -34,18 +34,32 @@
                     <StackPanel Orientation="Horizontal" Margin="10">
                         <Image Width="100" Height="60" Source="{Binding TempImage}" />
                         <StackPanel>
-                            <TextBlock Text="{Binding Name}" />
-                            <TextBlock Text="{Binding Price}" Margin="10" />
-                            <TextBlock Text="{Binding Quantity}" Margin="10" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Product: "/>
+                                <TextBlock Text="{Binding Name}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Price: "/>
+                                <TextBlock Text="{Binding Price}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Quantity: "/>
+                                <TextBlock Text="{Binding Quantity}" />
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button x:ConnectionId='3' Grid.Row="2"                           Margin="40" HorizontalAlignment="Stretch" FontSize="22" Background="Green" Foreground="White" Height="40">
-            Buy Now!
-        </Button>
+        <StackPanel Grid.Row="2">
+            <Button x:ConnectionId='3'                            Margin="20" HorizontalAlignment="Stretch" FontSize="22" Background="Green" Foreground="White" Height="40">
+                Buy Now!
+            </Button>
+            <Button x:ConnectionId='4'                    Width="180" Height="30" FontSize="11" HorizontalAlignment="Stretch" Background="Red" Foreground="White">
+                Clear Cart!
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
 

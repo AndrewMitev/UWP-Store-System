@@ -44,5 +44,10 @@ namespace Store.Models
         {
             this.items.Add(newItem);
         }
+
+        public void Clear()
+        {
+            this.items.Clear();
+        }
     }
 }

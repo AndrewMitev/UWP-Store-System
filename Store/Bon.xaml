@@ -7,28 +7,62 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView Name="listItems">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <ListView Grid.Row="0" Name="listItems">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="20">
-                        <TextBlock Text="{Binding Name}" />
-                        <TextBlock Text="{Binding Quantity}" />
-                        <TextBlock Text="{Binding Price}" />
-                        <TextBlock Text="{Binding Total}" />
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <TextBlock Text="*" FontSize="24" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Product: "/>
+                                    <TextBlock Text="{Binding Name}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Price: "/>
+                                    <TextBlock Text="{Binding Price}" />
+                                    <TextBlock Text="$" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Quantity: "/>
+                                    <TextBlock Text="{Binding Quantity}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Total: "/>
+                                    <TextBlock Text="{Binding Total}" />
+                                    <TextBlock Text="$" />
+                                </StackPanel>
+                                <TextBlock Text="----------------------------------------------" Margin="10" />
+                            </StackPanel>
+                        </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Text="Total Bill:" />
-        <TextBlock Name="TotalBill" />
 
-        <TextBlock Text="Change:" />
-        <TextBlock Name="Change" />
-
-        <Button Click="Button_Click" HorizontalAlignment="Stretch" Margin="40" FontStyle="Italic" FontFamily="verdana">
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Total Bill:" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="TotalBill" />
+                <TextBlock Text="$" />
+            </StackPanel>
+            <TextBlock Text="Change:" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="Change" />
+                <TextBlock Text="$" />
+            </StackPanel>
+        </StackPanel>
+        
+        <Button Grid.Row="2" Click="Button_Click" HorizontalAlignment="Stretch" Margin="10" FontStyle="Italic" FontFamily="verdana">
             Back To Store!
         </Button>
 
-    </StackPanel>
+    </Grid>
 </Page>

@@ -1,29 +1,17 @@
-﻿using SQLite.Net;
-using SQLite.Net.Async;
-using SQLite.Net.Platform.WinRT;
-using Store.Helpers;
-using Store.Models;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Storage;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
-namespace Store
+﻿namespace Store
 {
+    using SQLite.Net;
+    using SQLite.Net.Async;
+    using SQLite.Net.Platform.WinRT;
+    using Helpers;
+    using Models;
+    using System;
+    using System.IO;
+    using System.Threading.Tasks;
+    using Windows.Storage;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Controls;
+
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -80,6 +68,8 @@ namespace Store
             var drink = new Category { Name = "Drink" };
             var style = new Category { Name = "Style" };
 
+            //await connection.QueryAsync<Item>("DELETE FROM Item");
+
             if (connection.Table<Category>().CountAsync().Result == 0)
             {
                 await connection.InsertAsync(food);
@@ -92,9 +82,11 @@ namespace Store
                 var foodItemOne = new Item()
                 {
                     Id = 1,
-                    Name = "Beefh",
+                    Name = "Beef",
                     Price = 3.60m,
                     Image = File.ReadAllBytes("Images/food/beef.jpg"),
+                    Measurement = "Kg.",
+                    Quantity = 30,
                     CategoryId = 1
                 };
 
@@ -106,6 +98,8 @@ namespace Store
                     Name = "Cheese",
                     Price = 2.40m,
                     Image = File.ReadAllBytes("Images/food/cheese.jpg"),
+                    Measurement = "Kg.",
+                    Quantity = 24,
                     CategoryId = 1
                 };
 
@@ -117,6 +111,8 @@ namespace Store
                     Name = "Potatoes",
                     Price = 1.00m,
                     Image = File.ReadAllBytes("Images/food/potatoes.jpg"),
+                    Measurement = "Kg.",
+                    Quantity = 1000,
                     CategoryId = 1
                 };
 
@@ -128,6 +124,8 @@ namespace Store
                     Name = "Tomatoes",
                     Price = 0.80m,
                     Image = File.ReadAllBytes("Images/food/tomatoes.jpg"),
+                    Measurement = "Kg.",
+                    Quantity = 200,
                     CategoryId = 1
                 };
 
@@ -139,6 +137,8 @@ namespace Store
                     Name = "Coca Cola",
                     Price = 1.20m,
                     Image = File.ReadAllBytes("Images/drinks/cola.jpg"),
+                    Measurement = "750ml.",
+                    Quantity = 300,
                     CategoryId = 2
                 };
 
@@ -150,6 +150,8 @@ namespace Store
                     Name = "Fanta",
                     Price = 1.40m,
                     Image = File.ReadAllBytes("Images/drinks/fanta.png"),
+                    Measurement = "600ml.",
+                    Quantity = 400,
                     CategoryId = 2
                 };
 
@@ -161,6 +163,8 @@ namespace Store
                     Name = "Juice",
                     Price = 0.80m,
                     Image = File.ReadAllBytes("Images/drinks/juice.jpg"),
+                    Measurement = "1.2L.",
+                    Quantity = 40,
                     CategoryId = 2
                 };
 
@@ -172,6 +176,8 @@ namespace Store
                     Name = "Milk",
                     Price = 1.45m,
                     Image = File.ReadAllBytes("Images/drinks/milk.png"),
+                    Measurement = "1.2L.",
+                    Quantity = 50,
                     CategoryId = 2
                 };
 
@@ -183,6 +189,8 @@ namespace Store
                     Name = "Nike Shoes Sports Man Trainers Amd2016-Iso20",
                     Price = 240.00m,
                     Image = File.ReadAllBytes("Images/style/nike.jpg"),
+                    Measurement = "Item",
+                    Quantity = 10,
                     CategoryId = 3
                 };
 

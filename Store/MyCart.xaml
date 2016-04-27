@@ -34,17 +34,31 @@
                     <StackPanel Orientation="Horizontal" Margin="10">
                         <Image Width="100" Height="60" Source="{Binding TempImage}" />
                         <StackPanel>
-                            <TextBlock Text="{Binding Name}" />
-                            <TextBlock Text="{Binding Price}" Margin="10" />
-                            <TextBlock Text="{Binding Quantity}" Margin="10" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Product: "/>
+                                <TextBlock Text="{Binding Name}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Price: "/>
+                                <TextBlock Text="{Binding Price}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Quantity: "/>
+                                <TextBlock Text="{Binding Quantity}" />
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button Grid.Row="2" Click="Begin_Transaction" Margin="40" HorizontalAlignment="Stretch" FontSize="22" Background="Green" Foreground="White" Height="40">
-            Buy Now!
-        </Button>
+        <StackPanel Grid.Row="2">
+            <Button  Click="Begin_Transaction" Margin="20" HorizontalAlignment="Stretch" FontSize="22" Background="Green" Foreground="White" Height="40">
+                Buy Now!
+            </Button>
+            <Button Click="Clear_Cart" Width="180" Height="30" FontSize="11" HorizontalAlignment="Stretch" Background="Red" Foreground="White">
+                Clear Cart!
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

@@ -1,30 +1,19 @@
-﻿using SQLite.Net;
-using SQLite.Net.Async;
-using SQLite.Net.Platform.WinRT;
-using Store.Helpers;
-using Store.Models;
-using Store.Models.Contracts;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Storage;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
-
-namespace Store
+﻿namespace Store
 {
+    using SQLite.Net;
+    using SQLite.Net.Async;
+    using SQLite.Net.Platform.WinRT;
+    using Helpers;
+    using Models;
+    using Models.Contracts;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using Windows.Storage;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Controls;
+
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -63,11 +52,24 @@ namespace Store
 
         private async void Begin_Transaction(object sender, RoutedEventArgs e)
         {
+            if (this.ViewModel.Items.Count() == 0)
+            {
+                return;
+            }
+
+            decimal totalSum = this.ViewModel.Items.Sum(x => (x.Quantity * x.Price));
+
+            if (totalSum > Cart.UserChart.Money)
+            {
+                return;
+            }
+
             var connection = this.GetDbConnectionAsync();
+            var records = await connection.Table<Item>().ToListAsync(); //Where(x => x.Id == item.Id).FirstAsync();
 
             foreach (var item in this.ViewModel.Items)
             {
-                Item databaseItem = await connection.Table<Item>().Where(x => x.Id == item.Id).FirstOrDefaultAsync();
+                Item databaseItem = records.FirstOrDefault(x => x.Id == item.Id);
 
                 if (databaseItem != null)
                 {
@@ -79,6 +81,9 @@ namespace Store
             List<ISellable> transferList = new List<ISellable>();
 
             this.ViewModel.Items.ForEach(x => transferList.Add(x));
+
+            this.ViewModel.Clear();
+            Cart.UserChart.Items.Clear();
 
             this.Frame.Navigate(typeof(Bon), transferList);
         }
@@ -97,6 +102,12 @@ namespace Store
             var asyncConnection = new SQLiteAsyncConnection(connectionFactory);
 
             return asyncConnection;
+        }
+
+        private void Clear_Cart(object sender, RoutedEventArgs e)
+        {
+            this.ViewModel.Clear();
+            Cart.UserChart.Items.Clear();
         }
     }
 }

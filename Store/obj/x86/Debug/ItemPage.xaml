@@ -37,7 +37,10 @@
                         </Button>
                         <StackPanel>
                             <TextBlock Text="{Binding Name}" />
-                            <TextBlock Text="{Binding Price}" Margin="10" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Price}" />
+                                <TextBlock Text="{Binding Measurement}" />
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

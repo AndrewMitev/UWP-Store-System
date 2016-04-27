@@ -14,7 +14,7 @@ namespace Store.Models
 
         public decimal Price { get; set; }
 
-        public int Quantity { get; set; } = 100;
+        public int Quantity { get; set; }
 
         public decimal Total
         {
@@ -25,7 +25,7 @@ namespace Store.Models
 
         }
 
-        public string Measurement { get; set; } = "Kg.";
+        public string Measurement { get; set; }
 
         public byte[] ImageBytes { get; set; }
 
