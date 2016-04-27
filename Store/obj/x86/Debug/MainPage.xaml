@@ -15,10 +15,12 @@
 
         <Canvas x:ConnectionId='1' Name="Menu" Grid.Row="0" Background="Black"                      HorizontalAlignment="Stretch" Height="80">
             <TextBlock x:ConnectionId='8' x:Name="header" Canvas.Top="20" Canvas.Left="20" Text="MyStore" Foreground="White" SelectionHighlightColor="#FF0078D7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" FontFamily="Segoe Print" />
-            <TextBlock Text="Hello, " Foreground="White" Canvas.Left="260" Canvas.Top="10" />
-            <TextBlock x:ConnectionId='9' Name="UserName" Foreground="White" Canvas.Left="310" Canvas.Top="10" />
-            <Button x:ConnectionId='10' Canvas.Left="280" Canvas.Top="30"                >
-                <Image Source="Images/cart.png" Width="40" />
+            <TextBlock FontSize="11" Text="Hello, " Foreground="White" Canvas.Left="220" Canvas.Top="10" />
+            <TextBlock x:ConnectionId='9' FontSize="11" Name="UserName" Foreground="White" Canvas.Left="260" Canvas.Top="10" />
+            <TextBlock FontSize="11" Text="Money: " Foreground="White" Canvas.Left="220" Canvas.Top="40" />
+            <TextBlock x:ConnectionId='10' FontSize="11" Name="Money" Foreground="White" Canvas.Left="260" Canvas.Top="40" />
+            <Button x:ConnectionId='11' Canvas.Left="290" Canvas.Top="10"                >
+                <Image Source="Images/cart.png" Width="50" />
             </Button>
         </Canvas>
         <StackPanel Grid.Row="1" HorizontalAlignment="Left">
@@ -32,12 +34,12 @@
                     <ImageBrush ImageSource="ms-appx:///Images/food.png" Stretch="Fill"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='3' x:Name="drinksButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="100" Margin="40">
+            <Button x:ConnectionId='3' x:Name="drinksButton"                            HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="100" Margin="40">
                 <Button.Background>
                     <ImageBrush Stretch="Fill" ImageSource="Images/drinks.png"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='4' x:Name="fashionButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="100" Margin="40" >
+            <Button x:ConnectionId='4' x:Name="fashionButton"                             HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="100" Margin="40" >
                 <Button.Background>
                     <ImageBrush Stretch="Fill" ImageSource="Images/clothes.png"/>
                 </Button.Background>

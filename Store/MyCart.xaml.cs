@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -33,7 +34,9 @@ namespace Store
         {
             this.InitializeComponent();
             this.ViewModel = new ItemCollectionViewModel(Cart.UserChart.Items);
+
             this.UserName.Text = Cart.UserChart.FirstName;
+            this.Money.Text = Cart.UserChart.Money.ToString() + "$";
         }
 
         public ItemCollectionViewModel ViewModel
@@ -53,6 +56,11 @@ namespace Store
             this.Frame.Navigate(typeof(MainPage));
         }
 
+        private void My_Cart(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MyCart));
+        }
+
         private async void Begin_Transaction(object sender, RoutedEventArgs e)
         {
             var connection = this.GetDbConnectionAsync();
@@ -60,11 +68,19 @@ namespace Store
             foreach (var item in this.ViewModel.Items)
             {
                 Item databaseItem = await connection.Table<Item>().Where(x => x.Id == item.Id).FirstOrDefaultAsync();
-                databaseItem.Quantity -= item.Quantity;
-                await connection.UpdateAsync(databaseItem);     
+
+                if (databaseItem != null)
+                {
+                    databaseItem.Quantity -= item.Quantity;
+                    await connection.UpdateAsync(databaseItem);
+                }
             }
 
+            List<ISellable> transferList = new List<ISellable>();
 
+            this.ViewModel.Items.ForEach(x => transferList.Add(x));
+
+            this.Frame.Navigate(typeof(Bon), transferList);
         }
 
         private SQLiteAsyncConnection GetDbConnectionAsync()

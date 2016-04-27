@@ -16,6 +16,15 @@ namespace Store.Models
 
         public int Quantity { get; set; } = 100;
 
+        public decimal Total
+        {
+            get
+            {
+                return (this.Price * this.Quantity);
+            }
+
+        }
+
         public string Measurement { get; set; } = "Kg.";
 
         public byte[] ImageBytes { get; set; }

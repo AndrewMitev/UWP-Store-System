@@ -17,5 +17,7 @@ namespace Store.Models.Contracts
         string Measurement { get; set; }
 
         int Quantity { get; set; }
+
+        decimal Total { get; }
     }
 }

@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="Store.Bon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Store"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView x:ConnectionId='1' Name="listItems">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="20">
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text="{Binding Quantity}" />
+                        <TextBlock Text="{Binding Price}" />
+                        <TextBlock Text="{Binding Total}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBlock Text="Total Bill:" />
+        <TextBlock x:ConnectionId='2' Name="TotalBill" />
+
+        <TextBlock Text="Change:" />
+        <TextBlock x:ConnectionId='3' Name="Change" />
+
+        <Button x:ConnectionId='4'                      HorizontalAlignment="Stretch" Margin="40" FontStyle="Italic" FontFamily="verdana">
+            Back To Store!
+        </Button>
+
+    </StackPanel>
+</Page>
+

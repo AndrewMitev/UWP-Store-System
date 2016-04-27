@@ -4,7 +4,7 @@
     using SQLite.Net.Attributes;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Item : ISellable
+    public class Item
     {
         [PrimaryKey]
         [AutoIncrement]

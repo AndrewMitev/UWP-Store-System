@@ -56,6 +56,11 @@ namespace Store
             this.Frame.Navigate(typeof(MainPage));
         }
 
+        private void My_Cart(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MyCart));
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (!Regex.IsMatch(this.selectedQuantity.Text, @"^\d+$"))

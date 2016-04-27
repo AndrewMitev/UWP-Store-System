@@ -14,8 +14,15 @@
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
 
-        <Canvas x:ConnectionId='1' Grid.Row="0" Background="Black"                      HorizontalAlignment="Stretch" Height="80">
+        <Canvas x:ConnectionId='1' Name="Menu" Grid.Row="0" Background="Black"                      HorizontalAlignment="Stretch" Height="80">
             <TextBlock x:ConnectionId='4' x:Name="header" Canvas.Top="20" Canvas.Left="20" Text="MyStore" Foreground="White" SelectionHighlightColor="#FF0078D7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" FontFamily="Segoe Print" />
+            <TextBlock FontSize="11" Text="Hello, " Foreground="White" Canvas.Left="220" Canvas.Top="10" />
+            <TextBlock x:ConnectionId='5' FontSize="11" Name="UserName" Foreground="White" Canvas.Left="260" Canvas.Top="10" />
+            <TextBlock FontSize="11" Text="Money: " Foreground="White" Canvas.Left="220" Canvas.Top="40" />
+            <TextBlock x:ConnectionId='6' FontSize="11" Name="Money" Foreground="White" Canvas.Left="260" Canvas.Top="40" />
+            <Button x:ConnectionId='7' Canvas.Left="290" Canvas.Top="10"                >
+                <Image Source="Images/cart.png" Width="50" />
+            </Button>
         </Canvas>
 
         <Canvas Grid.Row="1">

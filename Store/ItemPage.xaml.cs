@@ -1,6 +1,7 @@
 ﻿using SQLite.Net;
 using SQLite.Net.Async;
 using SQLite.Net.Platform.WinRT;
+using Store.Helpers;
 using Store.Models;
 using System;
 using System.Collections.Generic;
@@ -28,26 +29,38 @@ namespace Store
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class FoodPage : Page
+    public sealed partial class ItemPage : Page
     {
-        public FoodPage()
+        private int categoryId;
+
+        public ItemPage()
         {
             this.InitializeComponent();
 
             this.ViewModel = new ItemCollectionViewModel();
-            this.GetAllFoods();
+
+            this.UserName.Text = Cart.UserChart.FirstName;
+            this.Money.Text = Cart.UserChart.Money.ToString() + " $";
         }
 
-        private async void GetAllFoods()
+        private async void GetAllItems()
         {
             var connection = this.GetDbConnectionAsync();
 
-            IEnumerable<Item> data =  await connection.Table<Item>().Where(i => i.CategoryId == 1).ToListAsync();
+            IEnumerable<Item> data =  await connection.Table<Item>().Where(i => i.CategoryId == this.categoryId).ToListAsync();
 
             if (data.Count() > 0)
             {
                 data.ForEach(i => this.ViewModel.Add(new ItemViewModel { Id = i.Id, Name=i.Name, Price=i.Price, ImageBytes=i.Image}));
             }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            this.categoryId = (int)e.Parameter;
+            this.GetAllItems();
         }
 
         public ItemCollectionViewModel ViewModel
@@ -81,6 +94,11 @@ namespace Store
         private void Menu_Tapped(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private void My_Cart(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MyCart));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

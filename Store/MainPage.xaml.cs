@@ -29,12 +29,17 @@ namespace Store
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private const int FoodIdCategory = 1;
+        private const int DrinkIdCategory = 2;
+        private const int StyleIdCategory = 3;
+
         public MainPage()
         {
             this.InitializeComponent();
             this.Init();
 
             this.UserName.Text = Cart.UserChart.FirstName;
+            this.Money.Text = Cart.UserChart.Money.ToString() + " $";
         }
 
         private SQLiteAsyncConnection GetDbConnectionAsync()
@@ -192,18 +197,18 @@ namespace Store
 
         private void foodButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(FoodPage));
+            this.Frame.Navigate(typeof(ItemPage), FoodIdCategory);
         }
 
-        //private void drinksButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    this.Frame.Navigate(typeof(Drinks));
-        //}
+        private void drinksButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ItemPage), DrinkIdCategory);
+        }
 
-        //private void fashionButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    this.Frame.Navigate(typeof(Fashion));
-        //}
+        private void fashionButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ItemPage), StyleIdCategory);
+        }
 
         private void My_Cart(object sender, RoutedEventArgs e)
         {

@@ -10,21 +10,25 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="5*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
         <Canvas x:ConnectionId='1' Name="Menu" Grid.Row="0" Background="Black"                      HorizontalAlignment="Stretch" Height="80">
-            <TextBlock x:ConnectionId='3' x:Name="header" Canvas.Top="20" Canvas.Left="20" Text="MyStore" Foreground="White" SelectionHighlightColor="#FF0078D7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" FontFamily="Segoe Print" />
-            <TextBlock Text="Hello, " Foreground="White" Canvas.Left="260" Canvas.Top="10" />
-            <TextBlock x:ConnectionId='4' Name="UserName" Foreground="White" Canvas.Left="310" Canvas.Top="10" />
-            <Button Canvas.Left="280" Canvas.Top="30">
-                <Image Source="Images/cart.png" Width="40" />
+            <TextBlock x:ConnectionId='4' x:Name="header" Canvas.Top="20" Canvas.Left="20" Text="MyStore" Foreground="White" SelectionHighlightColor="#FF0078D7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" FontFamily="Segoe Print" />
+            <TextBlock FontSize="11" Text="Hello, " Foreground="White" Canvas.Left="220" Canvas.Top="10" />
+            <TextBlock x:ConnectionId='5' FontSize="11" Name="UserName" Foreground="White" Canvas.Left="260" Canvas.Top="10" />
+            <TextBlock FontSize="11" Text="Money: " Foreground="White" Canvas.Left="220" Canvas.Top="40" />
+            <TextBlock x:ConnectionId='6' FontSize="11" Name="Money" Foreground="White" Canvas.Left="260" Canvas.Top="40" />
+            <Button x:ConnectionId='7' Canvas.Left="290" Canvas.Top="10"                >
+                <Image Source="Images/cart.png" Width="50" />
             </Button>
         </Canvas>
 
-        <ListBox Grid.Row="1"
-                 ItemsSource="{Binding Items}">
+        <ListBox x:ConnectionId='2'
+                Name="ItemsToBuy"
+                Grid.Row="1"
+                ItemsSource="{Binding Items}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="10">
@@ -39,7 +43,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button x:ConnectionId='2' Grid.Row="2"                           Margin="40" HorizontalAlignment="Stretch" FontSize="22" Background="Green" Foreground="White" Height="40">
+        <Button x:ConnectionId='3' Grid.Row="2"                           Margin="40" HorizontalAlignment="Stretch" FontSize="22" Background="Green" Foreground="White" Height="40">
             Buy Now!
         </Button>
     </Grid>
